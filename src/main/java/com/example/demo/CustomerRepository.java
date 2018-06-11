@@ -17,6 +17,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>,
     bindings.bind(String.class)
         .first((SingleValueBinding<StringPath, String>) StringExpression::containsIgnoreCase);
 
-//    bindings.bind(root.name).as("name").all(SimpleExpression::in);
+//    bindings.bind(root.name).as("name").all((path, value) -> );
+//    bindings.bind(root.lastName).as("lastName").all(SimpleExpression::in);
   }
 }

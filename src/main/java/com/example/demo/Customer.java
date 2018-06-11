@@ -1,21 +1,11 @@
 package com.example.demo;
 
-import javax.annotation.Nullable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import com.querydsl.core.types.EntityPath;
-import com.querydsl.core.types.Path;
-import com.querydsl.core.types.PathMetadata;
-import com.querydsl.core.types.Visitor;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.AnnotatedElement;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -31,11 +21,16 @@ public class Customer implements Serializable {
 
   private String lastName;
 
+  private Integer age;
 
-  public static Customer of(String name, String lastName){
+  private LocalDateTime dateOfBirth;
+
+  public static Customer of(String name, String lastName, Integer age, LocalDateTime date) {
     Customer customer = new Customer();
     customer.setName(name);
     customer.setLastName(lastName);
+    customer.setAge(age);
+    customer.setDateOfBirth(date);
     return customer;
   }
 }
